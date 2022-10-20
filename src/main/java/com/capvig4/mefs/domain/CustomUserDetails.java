@@ -2,9 +2,9 @@ package com.capvig4.mefs.domain;
 
 import java.util.Collection;
 
-import com.capvig4.mefs.domain.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
 
 public class CustomUserDetails implements UserDetails {
 

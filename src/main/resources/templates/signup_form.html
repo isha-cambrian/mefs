@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:capvig4="http://localhost:8080">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="ISO-8859-1">
-    <title>Sign Up - CodeJava</title>
+    <title>Sign Up - MEFS</title>
     <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
     <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
@@ -12,20 +12,20 @@
     <div>
         <h1>User Registration - Sign Up</h1>
     </div>
-    <form capvig4:action="@{/process_register}" capvig4:object="${user}"
+    <form th:action="@{/process_register}" th:object="${user}"
           method="post" style="max-width: 600px; margin: 0 auto;">
         <div class="m-3">
             <div class="form-group row">
                 <label class="col-4 col-form-label">E-mail: </label>
                 <div class="col-8">
-                    <input type="email" capvig4:field="*{email}" class="form-control" required />
+                    <input type="email" th:field="*{email}" class="form-control" required />
                 </div>
             </div>
 
             <div class="form-group row">
                 <label class="col-4 col-form-label">Password: </label>
                 <div class="col-8">
-                    <input type="password" capvig4:field="*{password}" class="form-control"
+                    <input type="password" th:field="*{password}" class="form-control"
                            required minlength="6" maxlength="10"/>
                 </div>
             </div>
@@ -33,15 +33,24 @@
             <div class="form-group row">
                 <label class="col-4 col-form-label">First Name: </label>
                 <div class="col-8">
-                    <input type="text" capvig4:field="*{firstName}" class="form-control"
+                    <input type="text" th:field="*{firstName}" class="form-control"
                            required minlength="2" maxlength="20"/>
                 </div>
             </div>
 
             <div class="form-group row">
+                <label class="col-4 col-form-label">Type: </label>
+                <div class="col-8">
+                    <select th:field="*{userType}" class="form-control">
+                        <option value="MANAGER">Volvo</option>
+                        <option value="SUBORDINATE">Saab</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
                 <label class="col-4 col-form-label">Last Name: </label>
                 <div class="col-8">
-                    <input type="text" capvig4:field="*{lastName}" class="form-control"
+                    <input type="text" th:field="*{lastName}" class="form-control"
                            required minlength="2" maxlength="20" />
                 </div>
             </div>

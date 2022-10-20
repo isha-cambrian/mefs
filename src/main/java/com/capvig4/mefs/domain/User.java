@@ -1,19 +1,28 @@
 package com.capvig4.mefs.domain;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 
 @Entity
-@Getter
-@Setter
+@Data
 @Table(name = "users")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column
+    private String name;
+
+    @Column
+    private Integer organisationId;
+
+    @Column
+    private UserType userType;
 
     @Column(nullable = false, unique = true, length = 45)
     private String email;
@@ -27,5 +36,7 @@ public class User {
     @Column(name = "last_name", nullable = false, length = 20)
     private String lastName;
 
-    // getters and setters are not shown
+    @Column
+    @CreationTimestamp
+    private Timestamp createdAt;
 }
